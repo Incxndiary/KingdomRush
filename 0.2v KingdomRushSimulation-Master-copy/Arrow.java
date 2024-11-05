@@ -7,7 +7,7 @@ public class Arrow extends Projectile
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    ArrowTower tower = new ArrowTower();
+    ArrowTower tower = new ArrowTower(5, 20, false);
     double X = tower.getX();
     double Y = tower.getY();
     
