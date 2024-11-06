@@ -23,4 +23,8 @@ public class Arrow extends Projectile
     public void spawn(){
         addObject(X, Y);
     }
+    
+    public void isHit(){
+        
+    }
 }
