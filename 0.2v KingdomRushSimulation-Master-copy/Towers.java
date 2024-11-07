@@ -6,8 +6,8 @@ public abstract class Towers extends Actor
     protected int range; 
     protected int damage; 
     protected boolean AOE;
-    private Monsters targetMonster;
-    private ArrayList<Monsters> monsters;
+    private Monster targetMonster;
+    private ArrayList<Monster> monsters;
     
     
     
@@ -18,7 +18,7 @@ public abstract class Towers extends Actor
         this.range = range;
         this.damage = damage;
         this.AOE = AOE;
-        ArrayList<String> enemies = (ArrayList<String>) getObjectsInRange(range, Monsters.class);
+        
         
         
     }
@@ -30,19 +30,19 @@ public abstract class Towers extends Actor
     
     public void damageClosestMonster()
     {
-        Monsters closestMonster = getClosestMonsterInRange();
+        Monster closestMonster = getClosestMonsterInRange();
         if (closestMonster != null) {
             closestMonster.takeDamage(damage); 
         }
     }
     
-    private Monsters getClosestMonsterInRange()
+    private Monster getClosestMonsterInRange()
     {
-        ArrayList<Monsters> monsters = (ArrayList<Monsters>) getObjectsInRange(range, Monsters.class);
-        Monsters closestMonster = null;
+        ArrayList<Monster> monsters = (ArrayList<Monster>) getObjectsInRange(range, Monster.class);
+        Monster closestMonster = null;
         double closestDistance = Double.MAX_VALUE;
 
-        for (Monsters monster : monsters) {
+        for (Monster monster : monsters) {
             double distance = getDistance(monster);
             if (distance < closestDistance) {
                 closestDistance = distance;
@@ -59,14 +59,14 @@ public abstract class Towers extends Actor
         // Get a list of all monster in the World, cast it to ArrayList
         // for easy management
 
-        monsters = (ArrayList<Monsters>)getObjectsInRange(40, Monsters.class);
+        monsters = (ArrayList<Monster>)getObjectsInRange(40, Monster.class);
         if (monsters.size() == 0){
 
-            monsters = (ArrayList<Monsters>)getObjectsInRange(150, Monsters.class);
+            monsters = (ArrayList<Monster>)getObjectsInRange(150, Monster.class);
         } 
         if (monsters.size() == 0){
 
-            monsters = (ArrayList<Monsters>)getObjectsInRange(300, Monsters.class);
+            monsters = (ArrayList<Monster>)getObjectsInRange(300, Monster.class);
         } 
         if (monsters.size() == 0){
             //monster = (ArrayList<Monsters>)getWorld().getObjects(Monsters.class);
@@ -81,7 +81,7 @@ public abstract class Towers extends Actor
             closestTargetDistance = MainWorld.getDistance (this, targetMonster);
 
             // Loop through the objects in the ArrayList to find the closest target
-            for (Monsters m : monsters)
+            for (Monster m : monsters)
             {
                 // Cast for use in generic method
                 //Actor a = (Actor) o;

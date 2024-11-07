@@ -1,13 +1,13 @@
 import greenfoot.*;
 
-public abstract class Monsters extends SuperSmoothMover
+public abstract class Monster extends SuperSmoothMover
 {
     protected double health;
     protected double speed;
     protected Path path;
     protected MonsterSpawner origin;
 
-    public Monsters(MonsterSpawner origin, double health, double speed)
+    public Monster(MonsterSpawner origin, double health, double speed)
     {
         this.origin = origin;
         this.health = health;

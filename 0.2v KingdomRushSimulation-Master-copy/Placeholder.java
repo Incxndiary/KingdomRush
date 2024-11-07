@@ -1,4 +1,4 @@
-public class Placeholder extends Monsters
+public class Placeholder extends Monster
 {
     public Placeholder(MonsterSpawner origin)
     {
