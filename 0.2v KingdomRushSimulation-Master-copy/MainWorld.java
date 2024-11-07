@@ -10,7 +10,7 @@ public class MainWorld extends World
 {
     MonsterSpawner origin = new MonsterSpawner();
     private GreenfootImage background;
-    
+    //fasdfadfkajdlf
     /**
      * Constructor for objects of class MyWorld.
      * 
