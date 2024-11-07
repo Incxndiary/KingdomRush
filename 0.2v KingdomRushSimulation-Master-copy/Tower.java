@@ -1,20 +1,22 @@
 import greenfoot.*;
 import java.util.ArrayList;
 
-public abstract class Towers extends Actor
+public abstract class Tower extends Actor
 {
     protected int range; 
     protected int damage; 
     protected boolean AOE;
-    private Monster targetMonster;
-    private ArrayList<Monster> monsters;
-    private int towerX;
-    private int towerY;
+    protected Monster targetMonster;
+    protected ArrayList<Monster> monsters;
+    protected int towerX;
+    protected int towerY;
+    
+    ArrayList<int> Xvalue = 
     
     
     protected abstract boolean damageMonster();
 
-    public Towers(int range, int damage, boolean AOE, int towerX, int towerY)
+    public Tower(int range, int damage, boolean AOE, int towerX, int towerY)
     {
         this.range = range;
         this.damage = damage;

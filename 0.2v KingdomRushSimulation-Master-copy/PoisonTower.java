@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PoisonTower extends Towers
+public class PoisonTower extends Tower
 {
     
     /**
@@ -14,8 +14,9 @@ public class PoisonTower extends Towers
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    public PoisonTower(int range, int damage, boolean AOE){
-        super(range, damage, true);
+    public PosionTower(int range, int damage, boolean AOE, int towerX, int towerY)
+    {
+        super(range, damage, false, towerX, towerY);
     }
     
     public void act(){
