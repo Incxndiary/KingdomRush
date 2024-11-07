@@ -5,4 +5,6 @@ comment1.params=range\ damage\ AOE
 comment1.target=ArrowTower(int,\ int,\ boolean)
 comment2.params=
 comment2.target=boolean\ damageMonster()
-numComments=3
+comment3.params=
+comment3.target=void\ act()
+numComments=4

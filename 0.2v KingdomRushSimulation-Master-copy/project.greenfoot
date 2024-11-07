@@ -1,4 +1,5 @@
 #Greenfoot project file
+class.Arrow.image=Arrow.png
 class.ArrowTower.image=castle.png
 class.Placeholder.image=man01.png
 dependency1.from=MainWorld

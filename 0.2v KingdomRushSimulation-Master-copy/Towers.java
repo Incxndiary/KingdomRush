@@ -18,6 +18,9 @@ public abstract class Towers extends Actor
         this.range = range;
         this.damage = damage;
         this.AOE = AOE;
+        ArrayList<String> enemies = (ArrayList<String>) getObjectsInRange(range, Monsters.class);
+        
+        
     }
 
     public void act()

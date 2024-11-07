@@ -11,13 +11,20 @@ public class ArrowTower extends Towers
     private int damage;
     private boolean AOE;
 
-    public ArrowTower( int range, int damage, boolean AOE)
+    Arrow arrow = new Arrow();
+    
+    
+    public ArrowTower(int range, int damage, boolean AOE)
     {
-        super(range, damage, AOE);
+        super(range, damage, false);
     }
     
     public boolean damageMonster(){
         return false;
+    }
+    
+    public void act(){
+        getWorld().addObject(arrow, getX(), getY() + 1);
     }
     
     int x;

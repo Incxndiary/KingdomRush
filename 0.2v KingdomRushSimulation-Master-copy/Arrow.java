@@ -7,12 +7,11 @@ public class Arrow extends Projectile
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    ArrowTower tower = new ArrowTower(5, 20, false);
-    double X = tower.getX();
-    double Y = tower.getY();
     
+
+    GreenfootImage image = getImage();
     public Arrow(){
-        
+        image.scale(50, 100);
     }
     
     public void act()
@@ -20,11 +19,5 @@ public class Arrow extends Projectile
         // Add your action code here.
     }
     
-    public void spawn(){
-        addObject(X, Y);
-    }
     
-    public void isHit(){
-        
-    }
 }
