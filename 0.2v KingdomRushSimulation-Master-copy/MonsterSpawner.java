@@ -22,12 +22,22 @@ public class MonsterSpawner extends Spawner
     protected World w;//Get reference to the world
 
     protected int spawnTimer = 0;
-    protected int spawnDuration = 0;
+
+    
+    protected int round;
+    protected int spawnInterval;
+    protected int spawnDuration = 20;
+    
+    protected boolean spawn = false;
+    
 
     
 
     public MonsterSpawner() {
         //monsterTypes = new ArrayList<>();
+        round = 0;
+        spawnInterval = spawnDuration;
+        spawn = true;
     }
     
     public void addedToWorld (World w){
@@ -38,12 +48,15 @@ public class MonsterSpawner extends Spawner
     //}
     public void act() {
         if(w != null) {
-            if(w.getObjects(getClass()).size() != 0) {
+            if(w.getObjects(getClass()).size() != 0 && spawnInterval == 0) {
                 this.spawnMonster();
                 //System.out.println('');
+                spawnInterval = spawnDuration;
             }
         }
-        
+        if(spawn && spawnInterval > 0) {
+            spawnInterval--;
+        }
         
     }
     
@@ -62,6 +75,9 @@ public class MonsterSpawner extends Spawner
             
     }
 
+    public void startSpawn(){
+        spawn = true;
+    }
     
     
     
