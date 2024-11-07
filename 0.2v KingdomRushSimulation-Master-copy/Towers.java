@@ -8,17 +8,19 @@ public abstract class Towers extends Actor
     protected boolean AOE;
     private Monster targetMonster;
     private ArrayList<Monster> monsters;
-    private ArrayList<
+    private int towerX;
+    private int towerY;
     
     
     protected abstract boolean damageMonster();
 
-    public Towers(int range, int damage, boolean AOE)
+    public Towers(int range, int damage, boolean AOE, int towerX, int towerY)
     {
         this.range = range;
         this.damage = damage;
         this.AOE = AOE;
-        
+        this.towerX = towerX;
+        this.towerY = towerY;
         
         
     }
