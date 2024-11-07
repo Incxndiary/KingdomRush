@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=boolean\ damageMonster()
 comment3.params=
 comment3.target=void\ act()
-numComments=4
+comment4.params=
+comment4.target=void\ spawnArrow()
+numComments=5

@@ -26,6 +26,8 @@ public class ArrowTower extends Towers
     public void act(){
         getWorld().addObject(arrow, getX(), getY() + 1);
     }
-    
+    public void spawnArrow(){
+        
+    }
     int x;
 }

@@ -8,7 +8,7 @@ public abstract class Towers extends Actor
     protected boolean AOE;
     private Monster targetMonster;
     private ArrayList<Monster> monsters;
-    
+    private ArrayList<
     
     
     protected abstract boolean damageMonster();
