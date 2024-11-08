@@ -11,6 +11,9 @@ public class MainWorld extends World
     MonsterSpawner origin = new MonsterSpawner();
     private GreenfootImage background;
     
+    
+    
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -21,7 +24,7 @@ public class MainWorld extends World
         super(1080, 750, 1, false); 
         MonsterSpawner spawner1 = new MonsterSpawner();
         addObject(spawner1, 300, 200);
-        addObject (new ArrowTower(100, 10, false), 300, 200);
+        
         background = new GreenfootImage ("background.png");
         setBackground (background);
         spawn();
@@ -29,7 +32,7 @@ public class MainWorld extends World
     }
     
     public void act(){
-        
+        addObject (new ArrowTower(100, 10, false), 150, 375);
     }
     private void spawn () {
         

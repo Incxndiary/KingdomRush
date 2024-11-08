@@ -1,5 +1,6 @@
 import greenfoot.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class Tower extends Actor
 {
@@ -11,12 +12,13 @@ public abstract class Tower extends Actor
     protected int towerX;
     protected int towerY;
     
-    ArrayList<int> Xvalue = 
+    
+    
     
     
     protected abstract boolean damageMonster();
 
-    public Tower(int range, int damage, boolean AOE, int towerX, int towerY)
+    public Tower(int range, int damage, boolean AOE)
     {
         this.range = range;
         this.damage = damage;
@@ -24,6 +26,8 @@ public abstract class Tower extends Actor
         this.towerX = towerX;
         this.towerY = towerY;
         
+        ArrayList<Integer> valueX = new ArrayList<>(Arrays.asList(150, 475, 880, 750));
+        ArrayList<Integer> valueY = new ArrayList<>(Arrays.asList(375, 300, 300, 75));
         
     }
 

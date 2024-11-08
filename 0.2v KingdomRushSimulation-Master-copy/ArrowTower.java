@@ -14,9 +14,9 @@ public class ArrowTower extends Tower
     Arrow arrow = new Arrow();
     
     
-    public ArrowTower(int range, int damage, boolean AOE, int towerX, int towerY)
+    public ArrowTower(int range, int damage, boolean AOE)
     {
-        super(range, damage, false, towerX, towerY);
+        super(range, damage, false);
     }
     
     public boolean damageMonster(){

@@ -8,22 +8,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PoisonTower extends Tower
 {
+    private int range;
+    private int damage;
+    private boolean AOE;
     
-    /**
-     * Act - do whatever the PoisonTower wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    Arrow arrow = new Arrow();
     
-    public PosionTower(int range, int damage, boolean AOE, int towerX, int towerY)
+    
+    public PoisonTower(int range, int damage, boolean AOE)
     {
-        super(range, damage, false, towerX, towerY);
+        super(range, damage, false);
+    }
+    
+    public boolean damageMonster(){
+        return false;
     }
     
     public void act(){
-        // Add your action code here.
+        getWorld().addObject(arrow, getX(), getY() + 1);
     }
-    
-    public boolean damageMonster() {
-        return false;
+    public void spawnArrow(){
+        
     }
 }
