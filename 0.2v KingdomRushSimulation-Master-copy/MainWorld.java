@@ -32,7 +32,16 @@ public class MainWorld extends World
     }
     
     public void act(){
+        ArrayList<Integer> valueX = new ArrayList<>(Arrays.asList(150, 390, 575, 540, 830, 750));
+        ArrayList<Integer> valueY = new ArrayList<>(Arrays.asList(375, 350, 300, 500, 300, 150));
+
         addObject (new ArrowTower(100, 10, false), 150, 375);
+        /*addObject (new ArrowTower(100, 10, false), 390, 350);
+        addObject (new ArrowTower(100, 10, false), 575, 300);
+        addObject (new ArrowTower(100, 10, false), 540, 500);
+        addObject (new ArrowTower(100, 10, false), 830, 300);
+        addObject (new ArrowTower(100, 10, false), 750, 150);
+        */
     }
     private void spawn () {
         

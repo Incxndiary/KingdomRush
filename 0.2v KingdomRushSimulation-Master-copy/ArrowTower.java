@@ -10,6 +10,7 @@ public class ArrowTower extends Tower
     private int range;
     private int damage;
     private boolean AOE;
+    SimpleTimer timer = new SimpleTimer();
     
     Arrow arrow = new Arrow();
     
@@ -24,10 +25,14 @@ public class ArrowTower extends Tower
     }
     
     public void act(){
-        getWorld().addObject(arrow, getX(), getY() + 1);
+        spawnArrow();
     }
     public void spawnArrow(){
+        if((timer.millisElapsed() + 6000)% 6000 == 0){
+            getWorld().addObject(arrow, getX(), getY());
+        }
         
     }
+    
     int x;
 }

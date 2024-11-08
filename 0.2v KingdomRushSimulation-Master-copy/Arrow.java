@@ -12,11 +12,14 @@ public class Arrow extends Projectile
     GreenfootImage image = getImage();
     public Arrow(){
         image.scale(50, 100);
+        image.rotate(90);
+        
     }
     
     public void act()
     {
-        // Add your action code here.
+        move(1);
+        
     }
     
     
