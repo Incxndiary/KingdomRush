@@ -29,5 +29,7 @@ public class ArrowTower extends Tower
     public void spawnArrow(){
         
     }
-    int x;
+    public void levelUp(){
+        damage *= 2;
+    }
 }

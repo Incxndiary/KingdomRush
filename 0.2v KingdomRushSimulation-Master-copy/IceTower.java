@@ -1,21 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PoisonTower here.
+ * Write a description of class IceTower here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PoisonTower extends Tower
+public class IceTower extends Tower
 {
     private int range;
     private int damage;
     private boolean AOE;
     
-    Poison poison = new Poison();
+    Ice ice = new Ice();
     
     
-    public PoisonTower(int range, int damage, boolean AOE)
+    public IceTower(int range, int damage, boolean AOE)
     {
         super(range, damage, false);
     }
@@ -25,9 +25,12 @@ public class PoisonTower extends Tower
     }
     
     public void act(){
-        getWorld().addObject(poison, getX(), getY() + 1);
+        getWorld().addObject(ice, getX(), getY() + 1);
     }
-    public void spawnPoison(){
+    public void spawnIce(){
+        
+    }
+    public void slowEnemy(){
         
     }
 }

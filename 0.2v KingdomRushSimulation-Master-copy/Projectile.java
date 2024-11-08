@@ -9,9 +9,10 @@ import java.util.ArrayList;
  */
 public class Projectile extends Actor
 {
-    private GreenfootImage projectileImage;
-    private int damage;
-    private boolean isHit;
+    protected GreenfootImage projectileImage;
+    protected int damage;
+    protected boolean isHit;
+    protected int speed;
     /**
      * Act - do whatever the Projectile wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -31,5 +32,17 @@ public class Projectile extends Actor
                 getWorld().removeObject(m);
             }
         }
+    }
+    public boolean checkMonsterHit(){
+        Monster m = (Monster)getOneObjectAtOffset((int)speed + getImage().getWidth()/2, 0, Monster.class);
+        if (m != null)
+        {
+            m.takeDamage(damage);
+            if(m.getHealth() <=0){
+                getWorld().removeObject(m);
+            }
+            return true;
+        }
+        return false;
     }
 }
