@@ -11,7 +11,7 @@ public abstract class Tower extends Actor
     protected ArrayList<Monster> monsters;
     protected int towerX;
     protected int towerY;
-    
+    protected int level;
     
     
     
