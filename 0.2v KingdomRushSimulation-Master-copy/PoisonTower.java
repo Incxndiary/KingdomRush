@@ -20,8 +20,8 @@ public class PoisonTower extends Tower
         super(range, damage, false);
     }
     
-    public boolean damageMonster(){
-        return false;
+    public void spawnObject(){
+        
     }
     
     public void act(){

@@ -11,6 +11,7 @@ public class MainWorld extends World
     MonsterSpawner origin = new MonsterSpawner();
     private GreenfootImage background;
     
+    SimpleTimer timer = new SimpleTimer();
     
     
     
@@ -28,14 +29,14 @@ public class MainWorld extends World
         background = new GreenfootImage ("background.png");
         setBackground (background);
         spawn();
-        
+        addObject (new ArrowTower(100, 10, false), 150, 375);
     }
     
     public void act(){
         ArrayList<Integer> valueX = new ArrayList<>(Arrays.asList(150, 390, 575, 540, 830, 750));
         ArrayList<Integer> valueY = new ArrayList<>(Arrays.asList(375, 350, 300, 500, 300, 150));
-
-        addObject (new ArrowTower(100, 10, false), 150, 375);
+        
+        
         /*addObject (new ArrowTower(100, 10, false), 390, 350);
         addObject (new ArrowTower(100, 10, false), 575, 300);
         addObject (new ArrowTower(100, 10, false), 540, 500);
@@ -47,6 +48,7 @@ public class MainWorld extends World
         
         
         addObject (new Placeholder(origin), 500, -100);
+        return;
         
     }
     

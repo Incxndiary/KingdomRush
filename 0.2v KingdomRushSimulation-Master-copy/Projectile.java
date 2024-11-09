@@ -25,7 +25,7 @@ public class Projectile extends Actor
     }
     public void act()
     {
-        // Add your action code here.
+        targetClosestMonster();
     }
     public void doDamageAOE(int radius){
         ArrayList<Monster> enemies = (ArrayList<Monster>)getObjectsInRange(radius, Monster.class);
@@ -36,31 +36,6 @@ public class Projectile extends Actor
             }
         }
     }
-    
-    protected void damageClosestMonster()
-    {
-        Monster closestMonster = getClosestMonsterInRange();
-        if (closestMonster != null) {
-            closestMonster.takeDamage(damage); 
-        }
-    }
-    
-    private Monster getClosestMonsterInRange()
-    {
-        ArrayList<Monster> monsters = (ArrayList<Monster>) getObjectsInRange(range, Monster.class);
-        Monster closestMonster = null;
-        double closestDistance = Double.MAX_VALUE;
-
-        for (Monster monster : monsters) {
-            double distance = getDistance(monster);
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestMonster = monster;
-            }
-        }
-
-        return closestMonster;
-    }
     protected void targetClosestMonster ()
     {
         double closestTargetDistance = 0;
@@ -68,25 +43,12 @@ public class Projectile extends Actor
         // Get a list of all monster in the World, cast it to ArrayList
         // for easy management
 
-        monsters = (ArrayList<Monster>)getObjectsInRange(40, Monster.class);
-        if (monsters.size() == 0){
-
-            monsters = (ArrayList<Monster>)getObjectsInRange(150, Monster.class);
-        } 
-        if (monsters.size() == 0){
-
-            monsters = (ArrayList<Monster>)getObjectsInRange(300, Monster.class);
-        } 
-        if (monsters.size() == 0){
-            //monster = (ArrayList<Monsters>)getWorld().getObjects(Monsters.class);
-        } 
-
+        monsters = (ArrayList<Monster>)getObjectsInRange(15, Monster.class);
+        
         if (monsters.size() > 0)
         {
             // set the first one as my target
             targetMonster = monsters.get(0);
-            // Use method to get distance to target. This will be used
-            // to check if any other targets are closer
             closestTargetDistance = MainWorld.getDistance (this, targetMonster);
 
             // Loop through the objects in the ArrayList to find the closest target
@@ -105,13 +67,8 @@ public class Projectile extends Actor
                 }
             }
             turnTowards(targetMonster.getX(), targetMonster.getY());
+            return;
         }
     }
     
-    private double getDistance(Actor actor)
-    {
-        int dx = actor.getX() - getX();
-        int dy = actor.getY() - getY();
-        return Math.sqrt(dx * dx + dy * dy);
-    }
 }

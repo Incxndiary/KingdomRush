@@ -18,8 +18,9 @@ public class Arrow extends Projectile
     
     public void act()
     {
-        move(1);
-        
+        super.act();
+        move(3);
+
     }
     
     
