@@ -8,7 +8,7 @@ public class Arrow extends Projectile
      */
     
     
-
+    
     GreenfootImage image = getImage();
     public Arrow(){
         image.scale(50, 100);
