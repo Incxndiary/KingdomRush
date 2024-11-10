@@ -73,13 +73,16 @@ public class Projectile extends Actor
             turnTowards(targetMonster.getX(), targetMonster.getY());
             if(targetMonster.getHealth() <= 0){
                 monsters.remove(0);
-                getWorld().removeObject(this);
+                getWorld().removeObject(targetMonster);
                 
             }else{
-                targetMonster.arrowDamage(100);
+                targetMonster.arrowDamage(50);
+                getWorld().removeObject(this);
             }
         }
         return;
     }
+    
+    
     
 }
