@@ -29,7 +29,7 @@ public class MainWorld extends World
         background = new GreenfootImage ("background.png");
         setBackground (background);
         spawn();
-        addObject (new ArrowTower(100, 10, false), 150, 375);
+        addObject (new ArrowTower(100, false), 150, 375);
     }
     
     public void act(){

@@ -61,7 +61,7 @@ public abstract class Monster extends SuperSmoothMover {
         PathResult start = path.move(this, speed, 3.6);
         setLocation(start.getNewX(), start.getNewY());
         setRotation(start.getRotationAngle());
-
+        arrowDamage();
         if (poison) {
             poisonDamageInterval--;
             if (poisonDamageInterval % 10 == 0) {
@@ -103,10 +103,17 @@ public abstract class Monster extends SuperSmoothMover {
         }
     }
     
-    public void arrowDamage(int damage){
+    public void arrowDamage(){
+        Arrow arrow = new Arrow();
+        if(isTouching(Arrow.class)){
+            if(getHealth() <= 1){
+                getWorld().removeObject(this);
+                getWorld().removeObject(arrow);
+            }else{
+                health -= 50;
+            }
+        }
         
-        health =- damage;
-        System.out.println(health);
     }
     
     public double getHealth() {

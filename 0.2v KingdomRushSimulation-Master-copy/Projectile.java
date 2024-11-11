@@ -28,17 +28,6 @@ public class Projectile extends Actor
         targetClosestMonster();
         
     }
-    public void doDamageAOE(int radius){
-        ArrayList<Monster> enemies = (ArrayList<Monster>)getObjectsInRange(radius, Monster.class);
-        for (Monster m : enemies){
-            m.arrowDamage(damage);
-            if(m.getHealth() <=0){
-                getWorld().removeObject(m);
-            }
-        }
-    }
-    
-    
     
     protected void targetClosestMonster ()
     {
@@ -47,7 +36,7 @@ public class Projectile extends Actor
         // Get a list of all monster in the World, cast it to ArrayList
         // for easy management
 
-        monsters = (ArrayList<Monster>)getObjectsInRange(100, Monster.class);
+        monsters = (ArrayList<Monster>)getObjectsInRange(200, Monster.class);
         
         if (monsters.size() > 0)
         {
@@ -71,14 +60,8 @@ public class Projectile extends Actor
                 }
             }
             turnTowards(targetMonster.getX(), targetMonster.getY());
-            if(targetMonster.getHealth() <= 0){
-                monsters.remove(0);
-                getWorld().removeObject(targetMonster);
-                
-            }else{
-                targetMonster.arrowDamage(50);
-                getWorld().removeObject(this);
-            }
+            
+            
         }
         return;
     }

@@ -15,9 +15,9 @@ public class MageTower extends Tower
     Fireball fireball = new Fireball();
     
     
-    public MageTower(int range, int damage, boolean AOE)
+    public MageTower(int range, boolean AOE)
     {
-        super(range, damage, false);
+        super(range, false);
     }
     
     public void spawnObject(){

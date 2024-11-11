@@ -2,8 +2,8 @@
 comment0.target=Tower
 comment1.params=
 comment1.target=void\ spawnObject()
-comment2.params=range\ damage\ AOE
-comment2.target=Tower(int,\ int,\ boolean)
+comment2.params=range\ AOE
+comment2.target=Tower(int,\ boolean)
 comment3.params=
 comment3.target=void\ act()
 comment4.params=

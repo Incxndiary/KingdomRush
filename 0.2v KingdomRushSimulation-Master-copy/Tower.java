@@ -5,7 +5,6 @@ import java.util.Arrays;
 public abstract class Tower extends Actor
 {
     protected int range; 
-    protected int damage; 
     protected boolean AOE;
     protected Monster targetMonster;
     protected ArrayList<Monster> monsters;
@@ -17,10 +16,9 @@ public abstract class Tower extends Actor
     
     protected abstract void spawnObject();
 
-    public Tower(int range, int damage, boolean AOE)
+    public Tower(int range, boolean AOE)
     {
         this.range = range;
-        this.damage = damage;
         this.AOE = AOE;
         
         ArrayList<Integer> valueX = new ArrayList<>(Arrays.asList(150, 290, 475, 500, 880, 750));
