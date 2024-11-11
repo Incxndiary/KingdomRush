@@ -106,14 +106,15 @@ public abstract class Monster extends SuperSmoothMover {
     public void arrowDamage(){
         Arrow arrow = new Arrow();
         if(isTouching(Arrow.class)){
-            if(getHealth() <= 1){
+            if(getHealth() <= 0){
                 getWorld().removeObject(this);
-                getWorld().removeObject(arrow);
+                
             }else{
                 health -= 50;
+                
             }
         }
-        
+        getWorld().removeObject(arrow);
     }
     
     public double getHealth() {
