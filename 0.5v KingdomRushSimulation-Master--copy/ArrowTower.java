@@ -27,7 +27,7 @@ public class ArrowTower extends Tower
         
         Arrow arrow = new Arrow(); // Create a new instance of Arrow
         getWorld().addObject(arrow, this.getX(), this.getY());
-        
+        Arrow.traveledMax();
                 
     }
     
@@ -43,6 +43,6 @@ public class ArrowTower extends Tower
         
     }
     
-
+    
     
 }

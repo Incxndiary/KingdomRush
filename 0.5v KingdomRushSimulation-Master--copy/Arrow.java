@@ -7,8 +7,7 @@ public class Arrow extends Projectile
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    
-    
+    ArrowTower arrow = new ArrowTower(200, false);
     GreenfootImage image = getImage();
     public Arrow(){
         image.scale(50, 100);
@@ -20,7 +19,19 @@ public class Arrow extends Projectile
     {
         super.act();
         move(50);
-
+        
+    
     }
+    
+    
+    public void traveledMax(){
+        int dx = getX() - arrow.getX();
+        int dy = getY() - arrow.getY();
+        double distance = Math.sqrt(dx*dx + dy*dy);
+        if(distance >= 200){
+            getWorld().removeObject(this);
+        }
+    }
+    
     
 }
