@@ -28,7 +28,7 @@ public class Startscreen extends World
         
         button.setImage(startImage);
         addObject(button, getWidth()/2, 600);
-        addObject(new ArrowTower(0, false), 300, getHeight()/2);
+        addObject(new ArrowTower(), 300, getHeight()/2);
         
     }
     

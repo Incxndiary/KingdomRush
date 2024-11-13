@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Arrow
-comment1.params=
-comment1.target=Arrow()
+comment1.params=angle
+comment1.target=Arrow(double)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=

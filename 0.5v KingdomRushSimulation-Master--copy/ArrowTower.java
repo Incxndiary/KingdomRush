@@ -1,48 +1,42 @@
-import greenfoot.*;
-import java.util.ArrayList;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
-/**
- * Write a description of class ArrowTower here.
- * 
- * @version (a version number or a date)
- */
-public class ArrowTower extends Tower
-{
-    private int range;
-    private boolean AOE;
-    SimpleTimer timer = new SimpleTimer();
-    private int counter = 0;
+public class ArrowTower extends Tower {
+    private int range = 200;  // Range within which the tower will detect monsters
+    private int shootCooldown = 30;  // Cooldown period between shots
+    private int shootTimer = 0;  // Timer to track cooldown
     
     
-    
-    
-    public ArrowTower(int range, boolean AOE)
-    {
-        super(range, false);
-        range = 100;
-        
-    }
-    
-    public void spawnObject(){
-        
-        Arrow arrow = new Arrow(); // Create a new instance of Arrow
-        getWorld().addObject(arrow, this.getX(), this.getY());
-        Arrow.traveledMax();
-                
-    }
     
     public void act() {
-        super.act();
-        if(Monster.class != null){
-            if(counter % 60 == 0){
-                spawnObject();
-            }
-            counter++;
+        Monster target = getTargetMonsterInRange();  // Get target monster within range
+
+        if (target != null && shootTimer <= 0) {
+            shootArrowAt(target);  // Shoot an arrow at the target
+            shootTimer = shootCooldown;  // Reset cooldown timer
         }
-        
-        
+
+        if (shootTimer > 0) {
+            shootTimer--;  // Decrement timer
+        }
     }
-    
-    
-    
+
+    private Monster getTargetMonsterInRange() {
+        List<Monster> monsters = getObjectsInRange(range, Monster.class);  // Get all monsters within range
+        if (!monsters.isEmpty()) {
+            return monsters.get(0);  // Return the first monster found in range
+        }
+        return null;  // Return null if no monster is in range
+    }
+
+    private void shootArrowAt(Monster target) {
+        // Calculate the angle towards the target
+        int dx = target.getX() - getX();
+        int dy = target.getY() - getY();
+        double angle = Math.atan2(dy, dx);
+
+        // Create an arrow and set its rotation towards the target
+        Arrow arrow = new Arrow(angle);  // Pass angle to arrow
+        getWorld().addObject(arrow, getX(), getY());  // Add arrow to the world
+    }
 }

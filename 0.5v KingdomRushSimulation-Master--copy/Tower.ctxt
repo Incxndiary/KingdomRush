@@ -1,11 +1,9 @@
 #BlueJ class context
 comment0.target=Tower
 comment1.params=
-comment1.target=void\ spawnObject()
-comment2.params=range\ AOE
-comment2.target=Tower(int,\ boolean)
+comment1.target=Tower()
+comment2.params=
+comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ act()
-comment4.params=
-comment4.target=void\ targetClosestMonster()
-numComments=5
+comment3.target=void\ targetClosestMonster()
+numComments=4

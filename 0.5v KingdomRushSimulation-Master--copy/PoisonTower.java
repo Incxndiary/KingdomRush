@@ -15,10 +15,7 @@ public class PoisonTower extends Tower
     Poison poison = new Poison();
     
     
-    public PoisonTower(int range, boolean AOE)
-    {
-        super(range, false);
-    }
+    
     
     public void spawnObject(){
         

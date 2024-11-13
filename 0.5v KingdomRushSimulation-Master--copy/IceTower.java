@@ -15,10 +15,7 @@ public class IceTower extends Tower
     Ice ice = new Ice();
     
     
-    public IceTower(int range, boolean AOE)
-    {
-        super(range, false);
-    }
+    
     
     public void spawnObject(){
         

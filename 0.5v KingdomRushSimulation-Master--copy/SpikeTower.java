@@ -15,10 +15,7 @@ public class SpikeTower extends Tower
     Spike spike = new Spike();
     
     
-    public SpikeTower(int range, boolean AOE)
-    {
-        super(range, false);
-    }
+    
     
     public void spawnObject(){
         

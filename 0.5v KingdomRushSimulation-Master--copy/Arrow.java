@@ -6,10 +6,11 @@ public class Arrow extends Projectile
      * Act - do whatever the Arrow wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
-    ArrowTower arrow = new ArrowTower(200, false);
+    private double angle1;
+    ArrowTower arrow = new ArrowTower();
     GreenfootImage image = getImage();
-    public Arrow(){
+    public Arrow(double angle){
+        this.angle1 = angle;
         image.scale(50, 100);
         image.rotate(90);
         
@@ -20,7 +21,6 @@ public class Arrow extends Projectile
         super.act();
         move(50);
         
-    
     }
     
     

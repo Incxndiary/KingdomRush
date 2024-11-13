@@ -15,10 +15,7 @@ public class MageTower extends Tower
     Fireball fireball = new Fireball();
     
     
-    public MageTower(int range, boolean AOE)
-    {
-        super(range, false);
-    }
+    
     
     public void spawnObject(){
         
