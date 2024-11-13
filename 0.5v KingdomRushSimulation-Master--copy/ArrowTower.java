@@ -3,7 +3,7 @@ import java.util.List;
 
 public class ArrowTower extends Tower {
     private int range = 200;  // Range within which the tower will detect monsters
-    private int shootCooldown = 30;  // Cooldown period between shots
+    private int shootCooldown = 20;  // Cooldown period between shots
     private int shootTimer = 0;  // Timer to track cooldown
     
     

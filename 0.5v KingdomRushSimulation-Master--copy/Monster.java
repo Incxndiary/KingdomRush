@@ -114,7 +114,7 @@ public abstract class Monster extends SuperSmoothMover {
         if(isTouching(Arrow.class)){
             Arrow arrow = (Arrow)getOneIntersectingObject(Arrow.class);
             w.removeObject(arrow);
-            this.health -= 50;
+            this.health -= 25;
             if(getHealth() <= 0){
                 w.removeObject(healthBar);
                 w.removeObject(this);
