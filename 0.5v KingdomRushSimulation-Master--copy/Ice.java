@@ -12,8 +12,14 @@ public class Ice extends Projectile
      * Act - do whatever the Ice wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    GreenfootImage image = getImage();
+    
+    public Ice(){
+        image.scale(50, 50);
+    }
+    
     public void act()
     {
-        // Add your action code here.
+        move(20);
     }
 }

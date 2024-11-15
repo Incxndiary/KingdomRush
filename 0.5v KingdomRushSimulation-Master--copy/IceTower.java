@@ -11,11 +11,15 @@ public class IceTower extends Tower
     private int range;
     private int damage;
     private boolean AOE;
-    
+    int level = 0;
     Ice ice = new Ice();
-    
-    
-    
+    Label levels = new Label(level, 50); 
+    GreenfootImage image = getImage();
+    public IceTower(){
+        image.scale(150, 200);
+        setImage(image);
+        
+    }
     
     public void spawnObject(){
         

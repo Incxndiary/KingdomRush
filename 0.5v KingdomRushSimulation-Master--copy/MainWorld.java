@@ -12,7 +12,9 @@ public class MainWorld extends World
     private GreenfootImage background;
     
     SimpleTimer timer = new SimpleTimer();
-    
+    int level = 1;
+    Label levels = new Label(level, 50); 
+    IceTower ice = new IceTower();
     
     
     /**
@@ -30,6 +32,11 @@ public class MainWorld extends World
         setBackground (background);
         spawn();
         addObject (new ArrowTower(), 150, 375);
+        addObject(new IceTower(), 390, 350);
+        
+        addObject (new ArrowTower(), 150, 375);
+        
+        
     }
     
     public void act(){
