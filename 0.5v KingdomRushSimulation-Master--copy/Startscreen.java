@@ -18,14 +18,14 @@ public class Startscreen extends World
     protected MainWorld world;
     GreenfootImage startImage;
     GreenfootImage otherImage;
-    GreenfootImage arrowstart;
-    GreenfootImage arrowfinish;
-    GreenfootImage arrowleft;
-    GreenfootImage arrowleft1;
+    GreenfootImage arrowLeftPressed;
+    GreenfootImage arrowRightPressed;
+    GreenfootImage arrowLeft;
+    GreenfootImage arrowRight;
     
     
-    Arrowhead arrowhead = new Arrowhead();
-    Arrowhead arrowhead1 = new Arrowhead();
+    Arrowhead arrowheadLeft = new Arrowhead();
+    Arrowhead arrowheadRight = new Arrowhead();
     Button button = new Button();
     
     protected boolean mousePressed;
@@ -41,19 +41,32 @@ public class Startscreen extends World
         startImage = new GreenfootImage("Play1.png");
         otherImage = new GreenfootImage("Play2.png");
         
-        arrowstart = new GreenfootImage("Arrowhead.png");
-        arrowstart.scale(75, 50);
-        arrowfinish = new GreenfootImage("Arrowhead1.png");
-        arrowfinish.scale(75, 50);
+        arrowLeft = new GreenfootImage("Arrowhead.png");
+        arrowLeft.scale(75, 50);
+        arrowLeft.mirrorHorizontally();
         
-        arrowleft = arrowstart;
-        arrowleft.rotate(180);
+        arrowRight = new GreenfootImage("Arrowhead.png");
+        arrowRight.scale(75, 50);
         
-        arrowleft1 = arrowfinish;
-        arrowleft.rotate(180);
         
-        arrowhead.setImage(arrowstart);
-        arrowhead1.setImage(arrowleft);
+        arrowLeftPressed = new GreenfootImage("Arrowhead1.png");
+        arrowLeftPressed.scale(75, 50);
+        arrowLeftPressed.mirrorHorizontally();
+        
+        arrowRightPressed = new GreenfootImage("Arrowhead1.png");
+        arrowRightPressed.scale(75, 50);
+        
+        
+        //setImage(arrowRight);
+        
+        //arrowleft = arrowstart;
+        //arrowleft.rotate(180);
+        
+        //arrowRight = arrowstart;
+        //arrowleft.rotate(180);
+        
+        arrowheadLeft.setImage(arrowLeft);
+        arrowheadRight.setImage(arrowRight);
         
         
         button.setImage(startImage);
@@ -61,9 +74,11 @@ public class Startscreen extends World
         addObject(new ArrowTower(), 300, getHeight()/2);
         addObject(num, 300, 500);
         
-        addObject(arrowhead, 400, 500);
-        addObject(arrowhead1, 200, 500);
-        
+        addObject(arrowheadRight, 400, 500);
+        addObject(arrowheadLeft, 200, 500);
+        //arrowhead.getImage().mirrorHorizontally();
+        //arrowhead.setImage(arrowhead.getImage());//Mirror the image
+
         mousePressed = false;
         
     }
@@ -95,8 +110,8 @@ public class Startscreen extends World
     }
     
     public void add(){
-        if(!mousePressed && Greenfoot.mousePressed(arrowhead)){
-            arrowhead.setImage(arrowfinish);
+        if(!mousePressed && Greenfoot.mousePressed(arrowheadRight)){
+            arrowheadRight.setImage(arrowRightPressed);
             mousePressed = true;
             if(counter >= 6){
                 addObject(invalid, getWidth()/2, 100);
@@ -110,7 +125,7 @@ public class Startscreen extends World
         }
         
         else if(Greenfoot.mouseClicked(null)){
-            arrowhead.setImage(arrowstart);
+            arrowheadLeft.setImage(arrowLeft);
             
             //Greenfoot.setWorld(world);
             mousePressed = false;
@@ -118,8 +133,9 @@ public class Startscreen extends World
     }
     
     public void subtract(){
-        if(!mousePressed && Greenfoot.mousePressed(arrowhead1)){
-            arrowhead1.setImage(arrowleft1);
+        if(!mousePressed && Greenfoot.mousePressed(arrowheadLeft)){
+            
+            arrowheadLeft.setImage(arrowLeftPressed);
             mousePressed = true;
             if(counter <= 0){
                 addObject(invalid1, getWidth()/2, 100);
@@ -133,7 +149,7 @@ public class Startscreen extends World
         }
         
         else if(Greenfoot.mouseClicked(null)){
-            arrowhead1.setImage(arrowleft);
+            arrowheadRight.setImage(arrowRight);
             
             //Greenfoot.setWorld(world);
             mousePressed = false;
