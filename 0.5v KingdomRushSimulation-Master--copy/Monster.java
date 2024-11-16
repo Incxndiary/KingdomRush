@@ -14,6 +14,10 @@ public abstract class Monster extends SuperSmoothMover {
     private boolean damagedThisAct, showHealth;
     protected GreenfootImage image;
     protected World w;
+    
+    private int slowCounter = 0;
+    private SlowEffect slowEffectCircle;
+    
 
     public Monster(MonsterSpawner origin, int health, double speed) {
         this.origin = origin;
@@ -62,7 +66,7 @@ public abstract class Monster extends SuperSmoothMover {
         PathResult start = path.move(this, speed, 3.6);
         setLocation(start.getNewX(), start.getNewY());
         setRotation(start.getRotationAngle());
-        arrowDamage();
+        Damage();
         
         if (poison) {
             poisonDamageInterval--;
@@ -110,17 +114,56 @@ public abstract class Monster extends SuperSmoothMover {
         }
     }
     
-    public void arrowDamage(){
-        if(isTouching(Arrow.class)){
-            Arrow arrow = (Arrow)getOneIntersectingObject(Arrow.class);
+    public void Damage() {
+        if (isTouching(Arrow.class)) {
+            Arrow arrow = (Arrow) getOneIntersectingObject(Arrow.class);
             w.removeObject(arrow);
             this.health -= 25;
-            if(getHealth() <= 0){
-                w.removeObject(healthBar);
-                w.removeObject(this);
+            if (getHealth() <= 0) {
+                removeEnemyAndCircle();
+                return;
+            }
+        } else if (isTouching(Ice.class)) {
+            Ice ice = (Ice) getOneIntersectingObject(Ice.class);
+            w.removeObject(ice);
+            slowCounter = 120;
+            this.speed = 0.5;
+            if (slowEffectCircle == null) {
+                slowEffectCircle = new SlowEffect(50); // Circle with radius 50
+                w.addObject(slowEffectCircle, getX(), getY());
+            }
+            this.health -= 10;
+            if (getHealth() <= 0) {
+                removeEnemyAndCircle();
+                return;
+            }
+        }
+        if (slowCounter > 0) {
+            slowCounter--;
+            if (slowEffectCircle != null) {
+                slowEffectCircle.setLocation(getX(), getY());
+            }
+    
+            if (slowCounter == 0) {
+                this.speed = maxSpeed;
+                if (slowEffectCircle != null) {
+                    w.removeObject(slowEffectCircle);
+                    slowEffectCircle = null;
+                }
             }
         }
     }
+
+    
+    private void removeEnemyAndCircle() {
+        if (slowEffectCircle != null) {
+            w.removeObject(slowEffectCircle);
+            slowEffectCircle = null;
+        }
+        w.removeObject(healthBar);
+        w.removeObject(this);
+    }
+
     
     public double getHealth() {
         return health;

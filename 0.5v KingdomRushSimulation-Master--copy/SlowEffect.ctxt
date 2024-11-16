@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=SlowEffect
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Slowdown\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=radius
+comment1.target=SlowEffect(int)
+numComments=2
