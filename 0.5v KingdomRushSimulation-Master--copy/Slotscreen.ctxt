@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Slotscreen
+comment0.text=\r\n\ Slotscreen\ handles\ tower\ placement\ by\ the\ player\ and\ transitions\ to\ MainWorld.\r\n
+comment1.params=arrowTowerCount\ iceTowerCount
+comment1.target=Slotscreen(int,\ int)
+comment2.params=frame\ x\ y
+comment2.target=void\ addSlot(Frame,\ int,\ int)
+comment3.params=
+comment3.target=void\ placeTowers()
+comment4.params=
+comment4.target=void\ act()
+numComments=5

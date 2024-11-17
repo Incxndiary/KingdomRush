@@ -15,7 +15,7 @@ public class IceTower extends Tower
     GreenfootImage image = getImage();
     
     public IceTower(){
-        image.scale(100, 100);
+        image.scale(150, 150);
     }
     
     
